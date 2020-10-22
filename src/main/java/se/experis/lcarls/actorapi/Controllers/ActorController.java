@@ -161,4 +161,25 @@ public class ActorController {
         return new ResponseEntity<>(cr, res);
     }
 
+    @DeleteMapping("/actor/{id}")
+    public ResponseEntity<CommonResponse> deleteActorById(HttpServletRequest req, @PathVariable Integer id) {
+        Command command = new Command(req);
+
+        CommonResponse cr = new CommonResponse();
+        HttpStatus res;
+
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+
+            cr.msg = "Deleted actor with id: "+id;
+            res = HttpStatus.OK;
+        } else {
+            cr.msg = "Could not find actor with id: "+id;
+            res = HttpStatus.NOT_FOUND;
+        }
+
+        command.setRes(res);
+        return new ResponseEntity<>(cr, res);
+    }
+
 }
