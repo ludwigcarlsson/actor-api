@@ -43,8 +43,4 @@ public class Actor {
     @ManyToMany(mappedBy = "actors", fetch = FetchType.LAZY)
     public Set<Movie> movies = new HashSet<Movie>();
 
-    //@Column
-    //public String mainMovie;
-
-
 }

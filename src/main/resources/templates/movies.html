@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>APIACTOR</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="nav-bar">
+    <div class="nav-option">Actors</div>
+    <div class="title nav-option active">APIACTOR</div>
+    <div class="nav-option">Movies</div>
+</div>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Release date</th>
+        <th>Actors</th>
+    </tr>
+    <tr th:each="movie: ${movies}">
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.genre}"></td>
+        <td th:text="${movie.releaseDate}"></td>
+        <td th:text="${movie.actors}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
