@@ -36,7 +36,7 @@ public class Actor {
     public List<String> actors() {
         return movies.stream()
                 .map(movie -> {
-                    return "/movies/" + movie.id;
+                    return "/movie/" + movie.id;
                 }).collect(Collectors.toList());
     }
 

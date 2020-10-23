@@ -69,6 +69,35 @@ public class ActorController {
         return new ResponseEntity<>(cr, res);
     }
 
+    @GetMapping("/actor/{id}/movies")
+    public ResponseEntity<CommonResponse> getMoviesByActor(HttpServletRequest req, @PathVariable("id") Integer id) {
+        Command command = new Command(req);
+
+        CommonResponse cr = new CommonResponse();
+        HttpStatus res;
+
+        if (repository.existsById(id)) {
+            Optional<Actor> actorRepo = repository.findById(id);
+            Actor actor = actorRepo.get();
+            if (!actor.movies.isEmpty()) {
+                cr.data = actor.movies;
+                cr.msg = "Movies by "+actor.firstName + " " + actor.lastName;
+                res = HttpStatus.OK;
+            } else {
+                cr.msg = "This actor has no movies.";
+                res = HttpStatus.NOT_FOUND;
+            }
+
+        } else {
+            cr.data = null;
+            cr.msg = "No actor with id: "+id+" found.";
+            res = HttpStatus.NOT_FOUND;
+        }
+
+        command.setRes(res);
+        return new ResponseEntity<>(cr, res);
+    }
+
     @PostMapping("/actor/")
     public ResponseEntity<CommonResponse> createActor(HttpServletRequest req, HttpServletResponse response, @RequestBody Actor actor) {
         Command command = new Command(req);
