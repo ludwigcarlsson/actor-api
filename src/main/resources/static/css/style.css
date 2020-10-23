@@ -14,12 +14,13 @@ body {
     border-bottom: 2px solid white;
     width: 98%;
     margin: 0 auto;
-    color: white;
 }
 .nav-option {
     font-size: 18px;
     padding: 10px;
     line-height: 32px;
+    text-decoration: none;
+    color: white;
 }
 .title {
     font-size: 32px;

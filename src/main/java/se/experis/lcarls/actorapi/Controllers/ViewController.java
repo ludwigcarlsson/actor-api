@@ -24,7 +24,7 @@ public class ViewController {
     public String getHomepage(Model model) {
 
         model.addAttribute("randMovie", movieRepository.findById(1));
-        model.addAttribute("movies", movieRepository.findAll());
+        model.addAttribute("    ", movieRepository.findAll());
 
         return "home";
     }
