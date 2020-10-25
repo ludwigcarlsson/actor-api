@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import se.experis.lcarls.actorapi.Repositories.ActorRepository;
 import se.experis.lcarls.actorapi.Repositories.MovieRepository;
 
-import java.util.Optional;
-
-
 @Controller
 public class ViewController {
 
