@@ -5,11 +5,15 @@ Actor API is a simple api that can store actors and movies. The applications act
 ## Usage
 
 The application has a basic view at the url: https://actorapi-lcarls.herokuapp.com/
+
 The API url is: https://actorapi-lcarls.herokuapp.com/api/v1/
 
 To access actors/movies, append following to url:
+
 GET: /all
+
 POST: /
+
 PATCH, PUT, DELETE: /{id}
 
 ## Liscense
