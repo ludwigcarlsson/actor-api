@@ -15,7 +15,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping(value = "/api/v1")
+@RequestMapping(value = "/api/v1") // added prepending url to api-requests
 public class ActorController {
 
     @Autowired
@@ -118,7 +118,7 @@ public class ActorController {
     }
 
     @PatchMapping("/actor/{id}")
-    public ResponseEntity<CommonResponse> updateActor(HttpServletRequest req, HttpServletResponse response, @RequestBody Actor patchActor, @PathVariable Integer id) {
+    public ResponseEntity<CommonResponse> updateActorById(HttpServletRequest req, HttpServletResponse response, @RequestBody Actor patchActor, @PathVariable Integer id) {
         Command command = new Command(req);
 
         CommonResponse cr = new CommonResponse();
@@ -157,7 +157,7 @@ public class ActorController {
     }
 
     @PutMapping("/actor/{id}")
-    public ResponseEntity<CommonResponse> replaceActor(HttpServletRequest req, HttpServletResponse response, @RequestBody Actor newActor, @PathVariable Integer id) {
+    public ResponseEntity<CommonResponse> replaceActorById(HttpServletRequest req, HttpServletResponse response, @RequestBody Actor newActor, @PathVariable Integer id) {
         Command command = new Command(req);
 
         CommonResponse cr = new CommonResponse();

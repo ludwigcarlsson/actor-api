@@ -25,6 +25,11 @@
         <td th:text="${actor.DoB}"></td>
         <td th:text="${actor.urlToImdb}"></td>
         <td th:text="${actor.movies}"></td>
+        <td>
+            <form th:action="@{/api/v1/actor/{id}(id=${actor.id})}" method="delete">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
     </tr>
 </table>
 

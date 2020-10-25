@@ -32,16 +32,49 @@ body {
 /* CONTAINER */
 .container {
     width: 100%;
-    border: 1px solid black;
-    height: 90%;
+    overflow: hidden;
 }
 .top-content {
-    border: 1px solid red;
     width: 100%;
-    height: 70%;
+    height: 500px;
+    position: relative;
+    background: darkgray;
+}
+.info-box {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    text-align: end;
+    margin: 10px;
+    color: white;
+}
+.info-title {
+    font-size: 42px;
+    font-weight: bold;
+}
+.info-genre, .info-release, .info-actors {
+    font-size: 28px;
+}
+.info-actors a{
+    color: lightgrey;
 }
 .bottom-content {
     border: 1px solid blue;
     width: 100%;
-    height: 20%;
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    row-gap: 10px;
 }
+.bottom-item {
+    padding: 5px;
+    width: 200px;
+    height: 100%;
+}
+.bottom-item-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+.bottom-item-rd {
+    font-size: 14px;
+}
+

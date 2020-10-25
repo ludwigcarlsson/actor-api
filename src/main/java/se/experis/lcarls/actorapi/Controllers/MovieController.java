@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value = "/api/v1")
 public class MovieController {
 
     @Autowired
@@ -73,7 +74,7 @@ public class MovieController {
     }
 
     @PatchMapping("/movie/{id}")
-    public ResponseEntity<CommonResponse> updateMovie(HttpServletRequest req, HttpServletResponse response, @RequestBody Movie patchMovie, @PathVariable Integer id) {
+    public ResponseEntity<CommonResponse> updateMovieById(HttpServletRequest req, HttpServletResponse response, @RequestBody Movie patchMovie, @PathVariable Integer id) {
         Command command = new Command(req);
 
         CommonResponse cr = new CommonResponse();
@@ -112,7 +113,7 @@ public class MovieController {
     }
 
     @PutMapping("/movie/{id}")
-    public ResponseEntity<CommonResponse> replaceMovie(HttpServletRequest req, HttpServletResponse response, @RequestBody Movie newMovie, @PathVariable Integer id) {
+    public ResponseEntity<CommonResponse> replaceMovieById(HttpServletRequest req, HttpServletResponse response, @RequestBody Movie newMovie, @PathVariable Integer id) {
         Command command = new Command(req);
 
         CommonResponse cr = new CommonResponse();

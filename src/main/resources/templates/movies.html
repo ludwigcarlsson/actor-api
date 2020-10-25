@@ -25,6 +25,11 @@
         <td th:text="${movie.genre}"></td>
         <td th:text="${movie.releaseDate}"></td>
         <td th:text="${movie.actors}"></td>
+        <td>
+            <form th:action="@{/api/v1/movie/{id}(id=${movie.id})}" method="delete">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
     </tr>
 </table>
 

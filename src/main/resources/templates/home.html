@@ -19,10 +19,15 @@
             <div class="info-title" th:text="${randMovie.get().title}"></div>
             <div class="info-genre" th:text="${randMovie.get().genre}"></div>
             <div class="info-release" th:text="${randMovie.get().releaseDate}"></div>
-            <div class="info-actors">Actors: <span>test</span></div>
+            <div class="info-actors">Actors: <a th:href="${randMovie.get().actors().get(0)}">test</a></div>
         </div>
     </div>
-    <div class="bottom-content"></div>
+    <div class="bottom-content"  th:each="movie: ${movies}">
+        <div class="bottom-item">
+            <p th:text="${movie.title}" class="bottom-item-title"></p>
+            <p th:text="${movie.releaseDate}" class="bottom-item-rd"></p>
+        </div>
+    </div>
 </div>
 
 </body>
