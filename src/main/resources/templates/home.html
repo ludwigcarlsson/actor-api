@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>APIACTOR</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="nav-bar">
+    <a class="nav-option" th:href="@{/actors}">Actors</a>
+    <a class="title nav-option active" th:href="@{/}">APIACTOR</a>
+    <a class="nav-option" th:href="@{/movies}">Movies</a>
+</div>
+
+<div class="container">
+    <div class="top-content">
+        <div class="info-box">
+            <div class="info-title" th:text="${randMovie.get().title}"></div>
+            <div class="info-genre" th:text="${randMovie.get().genre}"></div>
+            <div class="info-release" th:text="${randMovie.get().releaseDate}"></div>
+            <div class="info-actors">Actors: <a th:href="${randMovie.get().actors().get(0)}">test</a></div>
+        </div>
+    </div>
+    <div class="bottom-content"  th:each="movie: ${movies}">
+        <div class="bottom-item">
+            <p th:text="${movie.title}" class="bottom-item-title"></p>
+            <p th:text="${movie.releaseDate}" class="bottom-item-rd"></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

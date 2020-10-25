@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>APIACTOR</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="nav-bar">
+    <a class="nav-option" th:href="@{/actors}">Actors</a>
+    <a class="title nav-option active" th:href="@{/}">APIACTOR</a>
+    <a class="nav-option" th:href="@{/movies}">Movies</a>
+</div>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Release date</th>
+        <th>Actors</th>
+    </tr>
+    <tr th:each="movie: ${movies}">
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.genre}"></td>
+        <td th:text="${movie.releaseDate}"></td>
+        <td th:text="${movie.actors}"></td>
+        <td>
+            <form th:action="@{/api/v1/movie/{id}(id=${movie.id})}" method="delete">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

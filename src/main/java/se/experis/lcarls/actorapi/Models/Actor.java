@@ -3,6 +3,8 @@ package se.experis.lcarls.actorapi.Models;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -20,31 +22,23 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
 
-    @Column(nullable = false)
     public String firstName;
 
-    @Column(nullable = false)
     public String lastName;
 
-    @Column(nullable = false)
     public String DoB;
 
-    @Column(nullable = false)
     public String urlToImdb;
 
     @JsonGetter("movies")
     public List<String> actors() {
         return movies.stream()
                 .map(movie -> {
-                    return "/movies/" + movie.id;
+                    return "/api/v1/movie/" + movie.id;
                 }).collect(Collectors.toList());
-    }
+    } // create a list of movies that the actor has starred in
 
-    @ManyToMany(mappedBy = "actors", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "actors", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     public Set<Movie> movies = new HashSet<Movie>();
-
-    //@Column
-    //public String mainMovie;
-
 
 }
